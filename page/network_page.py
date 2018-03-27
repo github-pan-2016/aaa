@@ -8,19 +8,24 @@ from base.base_action import BaseAction
 class NetwrokPage(BaseAction):
 
     # 更多
-    more_button = By.XPATH, "//*[contains(@text,'更多')]"
+    # more_button = By.XPATH, "//*[contains(@text,'更多')]"
+    more_button = By.XPATH, ("text", "更多")
 
     # 移动网络
-    network_button = By.XPATH, "//*[contains(@text,'移动网络')]"
+    # network_button = By.XPATH, "//*[contains(@text,'移动网络')]"
+    network_button = By.XPATH, ("text", "移动网络")
 
     # 首选类型
-    first_network_button = By.XPATH, "//*[contains(@text,'首选网络类型')]"
+    # first_network_button = By.XPATH, "//*[contains(@text,'首选网络类型')]"
+    first_network_button = By.XPATH, ("text", "首选网络类型")
 
     # 2g
-    network_2g_button = By.XPATH, "//*[contains(@text,'2G')]"
+    # network_2g_button = By.XPATH, "//*[contains(@text,'2G')]"
+    network_2g_button = By.XPATH, ("text", "2G")
 
     # 3g
-    network_3g_button = By.XPATH, "//*[contains(@text,'3G')]"
+    # network_3g_button = By.XPATH, "//*[contains(@text,'3G')]"
+    network_3g_button = By.XPATH, ("text", "3G")
 
     def __init__(self, driver):
         BaseAction.__init__(self, driver)

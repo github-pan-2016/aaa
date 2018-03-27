@@ -8,7 +8,8 @@ from base.base_action import BaseAction
 class DisplayPage(BaseAction):
 
     # 显示按钮
-    display_button = By.XPATH, "//*[contains(@text,'显示')]"
+    # display_button = By.XPATH, "//*[contains(@text,'显示')]"
+    display_button = By.XPATH, ("text", "显示")
 
     # 搜索按钮
     search_button = By.ID, "com.android.settings:id/search"
@@ -21,7 +22,7 @@ class DisplayPage(BaseAction):
 
     def __init__(self, driver):
         BaseAction.__init__(self, driver)
-        self.click(self.display_button)
+        self.click(self.display_button, time=30, poll=5)
 
     def click_search(self):
         self.click(self.search_button)
