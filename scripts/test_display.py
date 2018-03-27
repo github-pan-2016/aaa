@@ -21,4 +21,7 @@ class TestDisplay:
         self.display.input_text_view("hello")
         self.display.click_back()
 
+        # 输入1+1
+        # 求和
+
 

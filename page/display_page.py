@@ -1,7 +1,11 @@
+import os, sys
+sys.path.append(os.getcwd())
+
 from selenium.webdriver.common.by import By
+from base.base_action import BaseAction
 
 
-class DisplayPage:
+class DisplayPage(BaseAction):
 
     # 显示按钮
     display_button = By.XPATH, "//*[contains(@text,'显示')]"
@@ -16,14 +20,21 @@ class DisplayPage:
     back_button = By.CLASS_NAME, "android.widget.ImageButton"
 
     def __init__(self, driver):
-        self.driver = driver
-        self.driver.find_element(self.display_button[0], self.display_button[1]).click()
+        BaseAction.__init__(self, driver)
+        self.click(self.display_button)
 
     def click_search(self):
-        self.driver.find_element(self.search_button[0], self.search_button[1]).click()
+        self.click(self.search_button)
 
     def input_text_view(self, text):
-        self.driver.find_element(self.text_view[0], self.text_view[1]).send_keys(text)
+        self.input_text(self.text_view, text)
 
     def click_back(self):
-        self.driver.find_element(self.back_button[0], self.back_button[1]).click()
+        self.click(self.back_button)
+
+    # 1+1
+        # 在某个控件输入1
+        # 在某个控件输入+
+        # 在某个控件输入1
+
+    # 求和

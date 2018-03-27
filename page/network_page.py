@@ -1,7 +1,11 @@
+import os, sys
+sys.path.append(os.getcwd())
+
 from selenium.webdriver.common.by import By
+from base.base_action import BaseAction
 
 
-class NetwrokPage:
+class NetwrokPage(BaseAction):
 
     # 更多
     more_button = By.XPATH, "//*[contains(@text,'更多')]"
@@ -18,17 +22,16 @@ class NetwrokPage:
     # 3g
     network_3g_button = By.XPATH, "//*[contains(@text,'3G')]"
 
-
     def __init__(self, driver):
-        self.driver = driver
-        self.driver.find_element(self.more_button[0], self.more_button[1]).click()
-        self.driver.find_element(self.network_button[0], self.network_button[1]).click()
+        BaseAction.__init__(self, driver)
+        self.click(self.more_button)
+        self.click(self.network_button)
 
     def click_first_network(self):
-        self.driver.find_element(self.first_network_button[0], self.first_network_button[1]).click()
+        self.click(self.first_network_button)
 
     def click_network_3g(self):
-        self.driver.find_element(self.network_3g_button[0], self.network_3g_button[1]).click()
+        self.click(self.network_3g_button)
 
     def click_network_2g(self):
-        self.driver.find_element(self.network_2g_button[0], self.network_2g_button[1]).click()
+        self.click(self.network_2g_button)
